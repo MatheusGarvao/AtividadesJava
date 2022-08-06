@@ -80,8 +80,8 @@ public class Atividades {
     public static void Atividade9(Scanner sc) {
         int tamanho[] = {0, 0, 0};
         int valor[] = {0, 0, 0};
-        int calculo=0;
-        String tipo ="";
+        int calculo = 0;
+        String tipo = "";
         for (int x = 0; x < 3; x++) {
             switch (x) {
                 case 0 -> {
@@ -101,7 +101,7 @@ public class Atividades {
             tamanho[x] = sc.nextInt();
             valor[x] = tamanho[x] * calculo;
         }
-         System.out.println("Soma do valor das camisetas: " + (valor[0] + valor[1] + valor[2]));
+        System.out.println("Soma do valor das camisetas: " + (valor[0] + valor[1] + valor[2]));
         for (int x = 0; x < 3; x++) {
             switch (x) {
                 case 0 ->
@@ -111,9 +111,76 @@ public class Atividades {
                 case 2 ->
                     tipo = "Grandes";
             }
-         
+
             System.out.println("quantidade de camisetas " + tipo + ": " + tamanho[x] + ", Arrecadando " + valor[x] + " reais");
         }
+    }
+
+    public static void Atividade8(Scanner sc) {
+        int notaTotal = 0;
+        int nota;
+        for (int x = 0; x < 3; x++) {
+            System.out.println("Insira a " + (x + 1) + "º nota");
+            nota = sc.nextInt();
+            notaTotal += nota * (x + 1);
+        }
+        notaTotal = notaTotal / 5;
+        System.out.println("A média ponderada das 3 notas é de " + notaTotal);
+    }
+
+    public static void Atividade7(Scanner sc) {
+        int mes, dia;
+        System.out.println("Insira o número do mês em que deseja:");
+        do {
+
+            mes = sc.nextInt();
+            if (mes <= 0 || mes >= 13) {
+                System.out.println("Insira um mês válido");
+            }
+
+        } while (mes <= 0 || mes >= 13);
+        System.out.println("Insira o número do dia em que deseja:");
+        do {
+
+            dia = sc.nextInt();
+            if (dia <= 0 || dia > 30) {
+                System.out.println("Insira um dia válido");
+            }
+        } while (dia <= 0 || dia > 30);
+
+        System.out.println("se passaram " + (mes * dia) + " dias desde o início do ano.");
+    }
+
+    public static void Atividade6(Scanner sc) {
+        System.out.println("Informe quantos quilos o seu prato pesou");
+        double peso = sc.nextDouble();
+        System.out.println("O valor a se pagar é de: " + peso * 12 + " reais");
+    }
+
+    public static void Atividade5(Scanner sc) {
+        System.out.println("Qual o valor do litro da gasolina?");
+        double valorGasolina = sc.nextDouble();
+        System.out.println("Quantos reais foram gastos?");
+        double valorGasto = sc.nextDouble();
+        System.out.println("Você abasteceu " + valorGasto / valorGasolina + " litros");
+    }
+
+    public static void Atividade4(Scanner sc) {
+        System.out.println("Insira o seu nome: ");
+        String nome = sc.next();
+        System.out.println("Insira a sua idade: ");
+        int idade = sc.nextInt();
+        System.out.println(nome + ", você já viveu " + idade * 365 + " dias!");
+    }
+
+    public static void Atividade3(Scanner sc) {
+        System.out.println("Insira a quantidade de pães vendidos: ");
+        int paes = sc.nextInt();
+        System.out.println("Insira a quantidade de broas vendidas: ");
+        int broas = sc.nextInt();
+        System.out.println("O valor vendido de pães e broas é de: " + (paes * 0.12 + broas * 1.5) + " reais");
+        System.out.println("O valor que deve guardar na polpança é de: " + ((paes * 0.12 + broas * 1.5) * 0.1) + " reais");
+
     }
 
     public static void Atividade2(Scanner sc) {
@@ -149,7 +216,7 @@ public class Atividades {
                     Atividade1(sc);
                 case 2 ->
                     Atividade2(sc);
-                /*case 3 ->
+                case 3 ->
                     Atividade3(sc);
                 case 4 ->
                     Atividade4(sc);
@@ -158,9 +225,9 @@ public class Atividades {
                 case 6 ->
                     Atividade6(sc);
                 case 7 ->
-                   Atividade7(sc);
+                    Atividade7(sc);
                 case 8 ->
-                   Atividade8(sc);*/
+                    Atividade8(sc);
                 case 9 ->
                     Atividade9(sc);
                 case 10 ->
