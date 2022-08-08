@@ -4,6 +4,93 @@ import java.util.Scanner;
 
 public class SegundaLista {
 
+    public static void Atividade15(Scanner sc) {
+     int[]angulos=new int[3];
+     for (int i = 0;i<3;i++){
+         System.out.println("Escreva o "+(i+1)+"º angulo do seu triangulo:");
+         angulos[i]=sc.nextInt();
+     }
+     if((angulos[0]+angulos[1]+angulos[2])==180){
+       if (angulos[0]>90||angulos[1]>90||angulos[2]>90){
+           System.out.println("O seu triangulo é um Obtusângulo");    
+       }else{
+           if(angulos[0]==90||angulos[1]==90||angulos[2]==90){
+               System.out.println("O seu triângulo é um Obtusângulo");
+           }else{
+               System.out.println("O seu triângulo é um Acutângulo");
+           }
+       }
+     } else{
+         System.out.println("A soma dos 3 angulos não resulta em 180 graus, logo, não é um triangulo.");
+     }
+    }
+    public static void Atividade13e14(Scanner sc) {
+        System.out.println("Quantos lados tem o seu polígono?");
+        int lados = sc.nextInt();
+        System.out.println("Qual é o tamanho destes lados?");
+        int tamanho = sc.nextInt();
+        if (lados < 3) {
+            System.out.println("NÃO É UM POLÍGONO");
+        } else {
+            if (lados > 5) {
+                System.out.println("POLÍGONO NÃO IDENTIFICADO");
+            } else {
+                switch (lados) {
+                    case 3 -> {
+                        System.out.println("O SEU POLÍGONO É UM TRIÂNGULO");
+                        System.out.println("A ÁREA DELE É DE " + ((Math.pow(tamanho, 2) * Math.sqrt(3)) / 4) + "CM²");
+                    }
+                    case 4 -> {
+                        System.out.println("O SEU POLÍGONO É UM QUADRADO");
+                        System.out.println("A ÁREA DELE É DE " + (tamanho * tamanho));
+                    }
+                    case 5 ->
+                        System.out.println("O SEU POLÍGONO É UM PENTAGONO");
+
+                }
+            }
+        }
+
+    }
+
+    public static void Atividade12(Scanner sc) {
+        double[] notas = new double[3];
+        double mediaAtv;
+        System.out.println("Insira o número de identificação do aluno:");
+        int matricula = sc.nextInt();
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Insira a " + (i + 1) + "º nota:");
+            notas[i] = sc.nextDouble();
+        }
+        System.out.println("Qual foi a média das atividades?");
+        mediaAtv = sc.nextDouble();
+        double notaFinal = ((((notas[0] + notas[1]) * 2) + (notas[2] * 3) + mediaAtv) / 8);
+        System.out.println("O aluno com o seu número de identificação " + matricula);
+        System.out.println("teve as seguintes notas:");
+        System.out.println("Primeira nota: " + notas[0]);
+        System.out.println("Segunda nota: " + notas[1]);
+        System.out.println("Terceira nota: " + notas[2]);
+        System.out.println("Média das atividades: " + mediaAtv);
+        System.out.println("Média de aproveitamento: " + notaFinal);
+        if (notaFinal >= 90) {
+            System.out.println("O aluno está APROVADO com um conceito A");
+        } else {
+            if (notaFinal >= 75) {
+                System.out.println("O aluno está APROVADO com um conceito B");
+            } else {
+                if (notaFinal >= 60) {
+                    System.out.println("O aluno está APROVADO com um conceito C");
+                } else {
+                    if (notaFinal >= 40) {
+                        System.out.println("O aluno está REPROVADO com um conceito D");
+                    } else {
+                        System.out.println("O aluno está REPROVADO com um conceito E");
+                    }
+                }
+            }
+        }
+    }
+
     public static void Atividade11(Scanner sc) {
         System.out.println("Insira o valor do produto:");
         double produto = sc.nextDouble();
@@ -53,7 +140,7 @@ public class SegundaLista {
     }
 
     public static void Atividade10(Scanner sc) {
-        int[] lados = new int[2];
+        int[] lados = new int[3];
         for (int i = 0; i <= 2; i++) {
             System.out.println("Insira o " + (i + 1) + " lado do triangulo:");
             lados[i] = sc.nextInt();
@@ -338,15 +425,15 @@ public class SegundaLista {
                 case 10 ->
                     Atividade10(sc);
                 case 11 ->
-                    Atividade11(sc);/*
+                    Atividade11(sc);
                 case 12 ->
                     Atividade12(sc);
                 case 13 ->
-                    Atividade13(sc);
+                    Atividade13e14(sc);
                 case 14 ->
-                    Atividade14(sc);
+                    Atividade13e14(sc);
                 case 15 ->
-                    Atividade15(sc);*/
+                    Atividade15(sc);
                 case 16 ->
                     System.out.println("Saindo!");
                 default ->
