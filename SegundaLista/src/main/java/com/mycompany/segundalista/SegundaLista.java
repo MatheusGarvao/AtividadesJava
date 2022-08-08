@@ -4,10 +4,82 @@ import java.util.Scanner;
 
 public class SegundaLista {
 
-    public static void Atividade9(Scanner sc) {
+    public static void Atividade11(Scanner sc) {
+        System.out.println("Insira o valor do produto:");
+        double produto = sc.nextDouble();
+        int metodo, parcelas, taxa;
+
+        System.out.println("Escolha um método de pagamento:");
+        do {
+            System.out.println("1 = CARTÃO DE DÉBITO");
+            System.out.println("2 = CARTÃO DE CRÉDITO");
+            System.out.println("3 = DINHEIRO");
+            System.out.println("4 = CHEQUE");
+            metodo = sc.nextInt();
+            if (metodo <= 0 || metodo > 4) {
+                System.out.println("Por favor, escolha entre uma das 4 opções disponíveis.");
+            }
+        } while (metodo <= 0 || metodo > 4);
+        if (metodo == 2) {
+            System.out.println("Será pago em quantas parcelas? (1 = a vista)");
+            do {
+                parcelas = sc.nextInt();
+                if (parcelas <= 0) {
+                    System.out.println("Por favor, insira uma quantidade positiva");
+                }
+            } while (parcelas <= 0);
+            if (parcelas == 1) {
+                System.out.println("Você irá pagar a vista com um desconto de 15%, saindo por");
+                System.out.println("R$" + (produto - (produto * 0.15)));
+            } else {
+                if (parcelas == 2) {
+                    System.out.println("Você irá pagar em duas vezes, o valor do produto é de");
+                    System.out.println("R$" + produto + " Pagando cada parcela por R$" + (produto / 2));
+                } else {
+                    System.out.println("Você irá pagar em " + parcelas + " vezes com um juros de 10%, saindo por");
+                    System.out.println("R$" + (produto + (produto * parcelas * 0.1)) + " pagando " + parcelas + " de R$" + ((produto * parcelas * 0.1) / parcelas));
+                }
+            }
+        } else {
+            if (metodo == 3 || metodo == 4) {
+                System.out.println("Você irá pagar a vista com um desconto de 10%, saindo por");
+                System.out.println("R$" + (produto - (produto * 0.1)));
+            } else {
+                System.out.println("Você irá pagar a vista o valor do produto, que é de");
+                System.out.println("R$" + produto);
+            }
+        }
+
+    }
+
+    public static void Atividade10(Scanner sc) {
+        int[] lados = new int[2];
+        for (int i = 0; i <= 2; i++) {
+            System.out.println("Insira o " + (i + 1) + " lado do triangulo:");
+            lados[i] = sc.nextInt();
+        }
+        if (lados[0] == lados[1] && lados[0] == lados[2]) {
+            System.out.println("O seu triangulo é equilátero");
+        } else {
+            if ((lados[0] == lados[1]) || (lados[1] == lados[2]) || (lados[0] == lados[2])) {
+                System.out.println("O seu triangulo é Isóscele");
+            } else {
+                System.out.println("O seu triangulo é Escaleno");
+            }
+        }
+    }
+
+    public static void Atividade9(Scanner sc, SegundaLista obj) {
         System.out.println("Qual a sua altura?");
-        int altura = sc.nextInt();
-        sout
+        double altura = sc.nextDouble();
+        String sexo = obj.sexo(sc);
+        System.out.println("O seu peso ideal é de");
+        switch (sexo) {
+            case ("MASCULINO") ->
+                System.out.println(((72.7 * altura) - 58) + " KG");
+            case ("FEMININO") ->
+                System.out.println(((62.1 * altura) - 44.7) + " KG");
+        }
     }
 
     public static void Atividade8(Scanner sc) {
@@ -121,7 +193,6 @@ public class SegundaLista {
             System.out.println("Informe o valor de C");
             equacao[2] = sc.nextDouble();
             double delta = Math.pow(equacao[1], 2) - 4 * equacao[0] * equacao[2];
-            System.out.println(0>delta);
             if (0 < delta) {
                 double bhaskara[] = {0, 0};
                 if (delta == 0) {
@@ -144,12 +215,12 @@ public class SegundaLista {
 
     public static void Atividade2(Scanner sc, SegundaLista obj) {
         String pessoa[] = {"", "", ""};
-        int anos,x;
+        int anos, x;
         String vogal = "";
         System.out.println("Qual é o seu nome?");
         pessoa[0] = sc.next();
         System.out.println("Qual é o seu sexo?");
-       
+
         pessoa[1] = obj.sexo(sc);
         switch (pessoa[1]) {
             case "MASCULINO" -> {
@@ -261,13 +332,13 @@ public class SegundaLista {
                 case 7 ->
                     Atividade7(sc);
                 case 8 ->
-                    Atividade8(sc);/*
+                    Atividade8(sc);
                 case 9 ->
-                    Atividade9(sc);
+                    Atividade9(sc, obj);
                 case 10 ->
                     Atividade10(sc);
                 case 11 ->
-                    Atividade11(sc);
+                    Atividade11(sc);/*
                 case 12 ->
                     Atividade12(sc);
                 case 13 ->
