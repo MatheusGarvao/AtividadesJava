@@ -9,7 +9,7 @@ public class SegundaLista {
         double aux, x;
         int i;
         for (i = 0; i <= 2; i++) {
-            System.out.println("Insira o " + i + " número:");
+            System.out.println("Insira o " + (i + 1) + "º número:");
             numeros[i] = sc.nextInt();
         }
 
