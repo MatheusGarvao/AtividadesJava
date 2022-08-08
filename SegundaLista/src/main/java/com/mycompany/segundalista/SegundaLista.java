@@ -4,6 +4,58 @@ import java.util.Scanner;
 
 public class SegundaLista {
 
+    public static void Atividade9(Scanner sc) {
+        System.out.println("Qual a sua altura?");
+        int altura = sc.nextInt();
+        sout
+    }
+
+    public static void Atividade8(Scanner sc) {
+        int[] numero = new int[5];
+        int i = 0, x, aux;
+        do {
+            System.out.println("Insira o " + (i + 1) + "º número:");
+            numero[i] = sc.nextInt();
+            for (x = 0; x < 5; x++) {
+                if (numero[i] == numero[x] && i != x) {
+                    System.out.println("Este número já está cadastrado");
+                    linha();
+                    i--;
+                    break;
+                }
+            }
+            i++;
+        } while (i < 5);
+
+        do {
+            x = 0;
+            for (i = 0; i <= 3; i++) {
+                if (numero[i] > numero[i + 1]) {
+                    aux = numero[i];
+                    numero[i] = numero[i + 1];
+                    numero[i + 1] = aux;
+                    x = 1;
+                }
+            }
+        } while (x != 0);
+        System.out.println("A ordem crescente dos números é ");
+        for (i = 0; i <= 3; i++) {
+            System.out.print(numero[i] + ", ");
+        }
+        System.out.println(numero[4] + ".");
+
+    }
+
+    public static void Atividade7(Scanner sc) {
+        System.out.println("Insira um número:");
+        int numero = sc.nextInt();
+        if (numero % 2 == 0) {
+            System.out.println("O numero digitado foi somado 5 e resultou em " + (numero + 5));
+        } else {
+            System.out.println("O numero digitado foi somado 8 e resultou em " + (numero + 8));
+        }
+    }
+
     public static void Atividade6(Scanner sc) {
         double numeros[] = {0, 0, 0};
         double aux, x;
@@ -69,7 +121,8 @@ public class SegundaLista {
             System.out.println("Informe o valor de C");
             equacao[2] = sc.nextDouble();
             double delta = Math.pow(equacao[1], 2) - 4 * equacao[0] * equacao[2];
-            if (delta < 0) {
+            System.out.println(0>delta);
+            if (0 < delta) {
                 double bhaskara[] = {0, 0};
                 if (delta == 0) {
                     System.out.println("A equação possuí somente 1 raiz!");
@@ -89,33 +142,23 @@ public class SegundaLista {
         }
     }
 
-    public static void Atividade2(Scanner sc) {
+    public static void Atividade2(Scanner sc, SegundaLista obj) {
         String pessoa[] = {"", "", ""};
-        int anos;
+        int anos,x;
         String vogal = "";
         System.out.println("Qual é o seu nome?");
         pessoa[0] = sc.next();
         System.out.println("Qual é o seu sexo?");
-        int x;
-        System.out.println("Qual o seu sexo? (escolha entre em maiusculo F/M):");
-        do {
-            x = 0;
-            pessoa[1] = sc.next();
-            switch (pessoa[1]) {
-                case "M" -> {
-                    pessoa[1] = "MASCULINO";
-                    vogal = "O";
-                }
-                case "F" -> {
-                    pessoa[1] = "FEMININO";
-                    vogal = "A";
-                }
-                default -> {
-                    x = 1;
-                    System.out.println("Por favor, utilize apenas M ou F em MAIUSCULO!");
-                }
+       
+        pessoa[1] = obj.sexo(sc);
+        switch (pessoa[1]) {
+            case "MASCULINO" -> {
+                vogal = "O";
             }
-        } while (x == 1);
+            case "FEMININO" -> {
+                vogal = "A";
+            }
+        }
         System.out.println("Qual o seu estado civíl?");
         do {
             x = 0;
@@ -170,8 +213,32 @@ public class SegundaLista {
         System.out.println("___________________________________________________________________________");
     }
 
+    public String sexo(Scanner sc) {
+        System.out.println("Qual é o seu sexo? (escolha entre em maiusculo F/M):");
+        int x;
+        String sexo;
+        do {
+            x = 0;
+            sexo = sc.next();
+            switch (sexo) {
+                case "M" -> {
+                    sexo = "MASCULINO";
+                }
+                case "F" -> {
+                    sexo = "FEMININO";
+                }
+                default -> {
+                    x = 1;
+                    System.out.println("Por favor, utilize apenas M ou F em MAIUSCULO!");
+                }
+            }
+        } while (x == 1);
+        return sexo;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        SegundaLista obj = new SegundaLista();
         int option = 0;
         while (option != 16) {
             linha();
@@ -182,7 +249,7 @@ public class SegundaLista {
                 case 1 ->
                     Atividade1(sc);
                 case 2 ->
-                    Atividade2(sc);
+                    Atividade2(sc, obj);
                 case 3 ->
                     Atividade3(sc);
                 case 4 ->
@@ -190,11 +257,11 @@ public class SegundaLista {
                 case 5 ->
                     Atividade5(sc);
                 case 6 ->
-                    Atividade6(sc);/*
+                    Atividade6(sc);
                 case 7 ->
                     Atividade7(sc);
                 case 8 ->
-                    Atividade8(sc);
+                    Atividade8(sc);/*
                 case 9 ->
                     Atividade9(sc);
                 case 10 ->
