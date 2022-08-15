@@ -156,10 +156,10 @@ public class SegundaLista {
         }
     }
 
-    public static void Atividade9(Scanner sc, SegundaLista obj) {
+    public static void Atividade9(Scanner sc) {
         System.out.println("Qual a sua altura?");
         double altura = sc.nextDouble();
-        String sexo = obj.sexo(sc);
+        String sexo = sexo(sc);
         System.out.println("O seu peso ideal é de");
         switch (sexo) {
             case ("MASCULINO") ->
@@ -300,7 +300,7 @@ public class SegundaLista {
         }
     }
 
-    public static void Atividade2(Scanner sc, SegundaLista obj) {
+    public static void Atividade2(Scanner sc) {
         String pessoa[] = {"", "", ""};
         int anos, x;
         String vogal = "";
@@ -308,7 +308,7 @@ public class SegundaLista {
         pessoa[0] = sc.next();
         System.out.println("Qual é o seu sexo?");
 
-        pessoa[1] = obj.sexo(sc);
+        pessoa[1] = sexo(sc);
         switch (pessoa[1]) {
             case "MASCULINO" -> {
                 vogal = "O";
@@ -371,7 +371,7 @@ public class SegundaLista {
         System.out.println("___________________________________________________________________________");
     }
 
-    public String sexo(Scanner sc) {
+    public static String sexo(Scanner sc) {
         System.out.println("Qual é o seu sexo? (escolha entre em maiusculo F/M):");
         int x;
         String sexo;
@@ -396,7 +396,6 @@ public class SegundaLista {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        SegundaLista obj = new SegundaLista();
         int option = 0;
         while (option != 16) {
             linha();
@@ -407,7 +406,7 @@ public class SegundaLista {
                 case 1 ->
                     Atividade1(sc);
                 case 2 ->
-                    Atividade2(sc, obj);
+                    Atividade2(sc);
                 case 3 ->
                     Atividade3(sc);
                 case 4 ->
@@ -421,7 +420,7 @@ public class SegundaLista {
                 case 8 ->
                     Atividade8(sc);
                 case 9 ->
-                    Atividade9(sc, obj);
+                    Atividade9(sc);
                 case 10 ->
                     Atividade10(sc);
                 case 11 ->
