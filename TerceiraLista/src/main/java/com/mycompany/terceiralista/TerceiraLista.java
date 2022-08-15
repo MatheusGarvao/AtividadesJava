@@ -152,12 +152,12 @@ public class TerceiraLista {
         } while (saida != 2);
     }
 
-    public static void Atividade3(Scanner sc, TerceiraLista obj) {
-        String name = obj.nome(sc);
-        int idade = obj.idade(sc);
-        double salario = obj.salario(sc);
-        String sexo = obj.sexo(sc);
-        String estadoCivil = obj.estadoCivil(sc, sexo);
+    public static void Atividade3(Scanner sc) {
+        String name = nome(sc);
+        int idade = idade(sc);
+        double salario = salario(sc);
+        String sexo = sexo(sc);
+        String estadoCivil = estadoCivil(sc, sexo);
         linha();
         System.out.println("Informações cadastradas com sucesso!");
         linha();
@@ -168,7 +168,7 @@ public class TerceiraLista {
         System.out.println("Estado civíl: " + estadoCivil);
     }
 
-    public String estadoCivil(Scanner sc, String sexo) {
+    public static String estadoCivil(Scanner sc, String sexo) {
         String vogal, civil;
         int x;
 
@@ -207,7 +207,7 @@ public class TerceiraLista {
         return civil;
     }
 
-    public String sexo(Scanner sc) {
+    public static String sexo(Scanner sc) {
         System.out.println("Qual é o seu sexo? (escolha entre em maiusculo F/M):");
         int x;
         String sexo;
@@ -230,7 +230,7 @@ public class TerceiraLista {
         return sexo;
     }
 
-    public double salario(Scanner sc) {
+    public static double salario(Scanner sc) {
         double Salario;
         System.out.println("Informe o seu salário:");
         do {
@@ -242,7 +242,7 @@ public class TerceiraLista {
         return Salario;
     }
 
-    public String nome(Scanner sc) {
+    public static String nome(Scanner sc) {
         String nome;
         System.out.println("Informe o seu nome:");
         do {
@@ -254,7 +254,7 @@ public class TerceiraLista {
         return nome;
     }
 
-    public int idade(Scanner sc) {
+    public static int idade(Scanner sc) {
         int Idade;
 
         System.out.println("Informe a sua idade:");
@@ -297,7 +297,6 @@ public class TerceiraLista {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TerceiraLista obj = new TerceiraLista();
         int option;
         do {
             linha();
@@ -310,7 +309,7 @@ public class TerceiraLista {
                 case 2 ->
                     Atividade2(sc);
                 case 3 ->
-                    Atividade3(sc, obj);
+                    Atividade3(sc);
                 case 4 ->
                     Atividade4e5(sc);
                 case 5 ->
