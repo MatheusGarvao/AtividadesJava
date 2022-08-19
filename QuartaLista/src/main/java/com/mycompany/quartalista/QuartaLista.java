@@ -67,7 +67,7 @@ public class QuartaLista {
                     maiorIdade = idade;
                     menorIdade = idade;
                     menorSalario[0] = String.valueOf(idade);
-                    menorSalario[1] = String.valueOf(genero);
+                    menorSalario[1] = genero;
                     valorMenorSalario = salario;
                 } else {
                     if (idade > maiorIdade) {
@@ -79,7 +79,7 @@ public class QuartaLista {
                     if (salario < valorMenorSalario) {
                         valorMenorSalario = salario;
                         menorSalario[0] = String.valueOf(idade);
-                        menorSalario[1] = String.valueOf(genero);
+                        menorSalario[1] = genero;
                     }
                 }
                 linha();
@@ -262,6 +262,8 @@ public class QuartaLista {
                     Atividade4(sc);
                 case 5 ->
                     Atividade5(sc);
+                case 6 ->
+                    Atividade6(sc);
                 case 7 ->
                     Atividade7(sc);
                 case 8 ->
