@@ -5,6 +5,19 @@ import java.util.Scanner;
 
 public class Lista6 {
 
+    public static void Atividade6(Scanner sc) {
+        int[] numeros = new int[10];
+         for (int i = 0; i < 5; i++) {
+            System.out.println("Por favor, informe o " + (i + 1) + "º número:");
+            numeros[i] = sc.nextInt();
+        }
+         System.out.println("Informe um número x: ");
+         int x = sc.nextInt();
+         for(int i = 0; i<5;i++){
+             System.out.println(numeros[i]+" * "+x+" = "+(numeros[i]*x));
+         }
+    }
+
     public static void Atividade5(Scanner sc) {
         double[] numeros = new double[5];
         int codigo;
@@ -34,6 +47,7 @@ public class Lista6 {
             default ->
                 System.out.println("Código inválido");
         }
+        System.out.println();
     }
 
     public static void Atividade4(Scanner sc) {
