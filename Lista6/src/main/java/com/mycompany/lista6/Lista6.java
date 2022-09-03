@@ -169,8 +169,8 @@ public class Lista6 {
                     Atividade4(sc);
                 case 5 ->
                     Atividade5(sc);
-                /*case 6 ->
-                    Atividade6(sc);*/
+                case 6 ->
+                    Atividade6(sc);
                 case 7 ->
                     System.out.println("Saindo!");
                 default ->
